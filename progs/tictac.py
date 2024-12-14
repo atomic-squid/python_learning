@@ -1,19 +1,16 @@
-# assignment from etube.org
+# assignment from edube.org
 from random import randrange
 
-# init board
-board = [
-    [1,2,3],
-    [4,5,6],
-    [7,8,9]
-]
-
-# define dictionary of positions by number assigned to the board
-board_positions = {}
+# initialize board and create dictionary of positions for choice selection
+board, board_positions = [], {}
 
 for x in range(3):
+    board.append([]) # create row
     for y in range(3):
-        board_positions[board[x][y]] = (x, y)
+        coord = (x, y)
+        num = 1 + 3 * x + y
+        board[x].append(num)
+        board_positions[num] = coord
 
 def display_board(board):
     # The function accepts one parameter containing the board's current status

@@ -1,4 +1,4 @@
-# Example provided by etube.org study materials
+# Example provided by edube.org study materials
 
 import pygame
 
