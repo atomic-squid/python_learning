@@ -21,16 +21,17 @@ def check_sudoku(test_board):
     # define valid list of values
     _DIGITS = list(n for n in range(1, 10))
 
-    # dice input board into grid of integers.
+    # safety check
+    assert len(test_board) == 9
+
+    # dice input board into a grid of integers.
     try:
         grid = list(list(int(n) for n in line) for line in test_board)
     except ValueError: return False
 
-    # if more than 9 rows, fail
-    if len(grid) != 9: return False
-
     # validate rows
     for row in grid:
+        assert len(row) == 9
         sort_group = sorted(row)
         if sort_group != _DIGITS:
             return False
