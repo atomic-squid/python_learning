@@ -24,6 +24,9 @@ class Point:
         self.__x = x
         self.__y = y
 
+    def __str__(self):
+        return f"Point({self.__x}, {self.__y})"
+
     def getx(self):
         return self.__x
 
@@ -43,16 +46,25 @@ class Point:
 
 class Triangle:
     def __init__(self, vertice1, vertice2, vertice3):
-        self.__vertex1 = vertice1
-        self.__vertex2 = vertice2
-        self.__vertex3 = vertice3
+        self.__v = (vertice1, vertice2, vertice3)
+    
+    def __str__(self):
+        return f"Triangle({self.__v[0]}, {self.__v[1]}, {self.__v[2]})"
 
     def perimeter(self):
-        side_a = self.__vertex1.distance_from_point(self.__vertex2)
-        side_b = self.__vertex2.distance_from_point(self.__vertex3)
-        side_c = self.__vertex3.distance_from_point(self.__vertex1)
+        side_a = self.__v[0].distance_from_point(self.__v[1])
+        side_b = self.__v[1].distance_from_point(self.__v[2])
+        side_c = self.__v[2].distance_from_point(self.__v[0])
         return side_a + side_b + side_c
+
+    def area(self):
+        x1 = self.__v[0].getx() * (self.__v[1].gety() - self.__v[2].gety())
+        x2 = self.__v[1].getx() * (self.__v[2].gety() - self.__v[0].gety())
+        x3 = self.__v[2].getx() * (self.__v[0].gety() - self.__v[1].gety())
+        return abs(x1 + x2 + x3) / 2
 
 
 triangle = Triangle(Point(0, 0), Point(1, 0), Point(0, 1))
 print(triangle.perimeter())
+print(triangle.area())
+print(triangle)
