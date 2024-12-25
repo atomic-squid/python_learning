@@ -3,7 +3,7 @@ from os import strerror
 
 try:
 	ccnt = lcnt = 0
-	for line in open('zfs.txt', 'rt'):
+	for line in open('newtext.txt', 'rt'):
 		lcnt += 1
 		for ch in line:
 			print(ch, end='')

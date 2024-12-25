@@ -3,7 +3,7 @@ from os import strerror
 
 try:
     ccnt = lcnt = 0
-    s = open('zfs.txt', 'rt')
+    s = open('newtext.txt', 'rt')
     lines = s.readlines(20)
     while len(lines) != 0:
         for line in lines:

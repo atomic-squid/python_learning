@@ -3,7 +3,7 @@ from os import strerror
 
 try:
     ccnt = lcnt = 0
-    s = open('lsblk.txt', 'rt')
+    s = open('newtext.txt', 'rt')
     line = s.readline()
     while line != '':
         lcnt += 1

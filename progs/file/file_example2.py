@@ -3,7 +3,7 @@ from os import strerror
 
 try:
     cnt = 0
-    s = open('zfs.txt', "rt")
+    s = open('newtext.txt', "rt")
     ch = s.read(1)
     while ch != '':
         print(ch, end='')

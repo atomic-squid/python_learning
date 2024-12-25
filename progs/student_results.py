@@ -41,9 +41,9 @@ class BadLine(StudentsDataException):
         self.line_number = line_number
         self.line_content = line_content
         self.message = message
-    
+
     def __str__(self):
-        return f"{self.message}: Line {self.line_number}, Content = \"{self.line_content}\""
+        return f"{self.message}: Line {self.line_number}, Content = \"{self.line_content.strip()}\""
 
 class FileEmpty(StudentsDataException):
     def __init__(self, filename, message = "File is empty"):
@@ -65,7 +65,7 @@ try:
             items = line.split()
             if len(items) != 3:
                 raise BadLine(line_number, line)
-            name = f"{items[0]} {items[1]}"
+            name = f"{items[1]}, {items[0]}"
             score = float(items[2])
             scores[name] += score
         except ValueError:
