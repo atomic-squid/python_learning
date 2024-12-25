@@ -11,16 +11,17 @@ Your program should meet the following requirements:
    subdirectories in the given path.
 """
 
-import os
+from os import listdir
+from os.path import abspath, isdir
 
 def find(path, dir):
-    directory_contents = os.listdir(path)
+    directory_contents = listdir(path)
     for name in directory_contents:
         new_path = f"{path}/{name}"
         if name == dir:
             # print(f"match found, yeilding {new_path}")
-            yield os.path.abspath(new_path)
-        if os.path.isdir(new_path):
+            yield abspath(new_path)
+        if isdir(new_path):
             # print(f"searching subdir {new_path}")
             yield from find(new_path, dir)
 
